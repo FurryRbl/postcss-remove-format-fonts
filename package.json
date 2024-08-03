@@ -1,0 +1,57 @@
+{
+	"name": "postcss-remove-format-fonts",
+	"version": "1.0.0",
+	"description": "A simple postcss plugin for removing fonts with specific formats.",
+	"license": "MPL-2.0",
+	"type": "module",
+	"keywords": [
+		"fonts",
+		"plugin",
+		"postcss"
+	],
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"files": [
+		"dist",
+		"LICENSE",
+		"README.md"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/FurryRbl/postcss-remove-format-fonts.git"
+	},
+	"homepage": "https://github.com/FurryRbl/postcss-remove-format-fonts",
+	"bugs": {
+		"url": "https://github.com/FurryRbl/template/postcss-remove-format-fonts"
+	},
+	"author": {
+		"name": "SharpIce",
+		"email": "VupRbl@163.com",
+		"url": "https://SharpIce.top"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"clean": "rimraf build",
+		"lint": "eslint --fix .",
+		"pre": "prettier . --write"
+	},
+	"dependencies": {
+		"postcss": "^8.4.40"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^26.0.1",
+		"@rollup/plugin-terser": "^0.4.4",
+		"eslint": "^9.7.0",
+		"eslint-config-prettier": "^9.0.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"prettier": "^3.3.3",
+		"rimraf": "^6.0.1",
+		"rollup": "^4.20.0"
+	}
+}
