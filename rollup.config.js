@@ -1,3 +1,4 @@
+import { dts } from 'rollup-plugin-dts';
 import terser from '@rollup/plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 
@@ -15,5 +16,15 @@ export default [
 			},
 		],
 		plugins: [terser(), commonjs()],
+	},
+	{
+		input: './src/main.d.ts',
+		output: [
+			{
+				file: 'dist/index.d.ts',
+				format: 'es',
+			},
+		],
+		plugins: [dts()],
 	},
 ];
