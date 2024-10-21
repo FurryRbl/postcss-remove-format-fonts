@@ -9,36 +9,31 @@ const removeFont = (fontType, value) => {
 };
 
 /**
- * @description A simple postcss plugin for removing fonts with specific formats.
- * @param {string | string[]} options
- * @returns {import('postcss').Plugin}
+ * A simple PostCSS plugin for removing fonts with specific formats.
+ * @param {string | string[]} options - The font types to remove.
+ * @returns {import('postcss').Plugin} - A PostCSS plugin.
  */
 const plugin = options => {
+	if ((typeof options === 'string' && !options.trim()) || (Array.isArray(options) && options.length === 0)) return;
+
 	return {
 		postcssPlugin: 'postcss-remove-font-format',
 
 		AtRule(atRule) {
-			if (
-				(typeof options === 'string' && options.trim().length === 0) ||
-				(Array.isArray(options) && options.length === 0)
-			) {
-				return;
-			}
-
 			// Matches rules named `font-face`
 			if (atRule.name === 'font-face') {
-				(atRule.nodes ?? []).forEach(node => {
-					if (node.prop === 'src') {
+				(atRule.nodes ?? []).forEach(decl => {
+					if (decl.prop === 'src') {
 						if (typeof options === 'string') {
-							node.value = removeFont(options, node.value);
+							decl.value = removeFont(options, decl.value);
 						} else if (Array.isArray(options)) {
 							options.forEach(fontType => {
-								node.value = removeFont(fontType, node.value);
+								decl.value = removeFont(fontType, decl.value);
 							});
 						}
 
 						// If `src` is empty then remove the entire `font-face`
-						if (node.value.trim().length === 0) {
+						if (decl.value.trim().length === 0) {
 							atRule.remove();
 						}
 					}

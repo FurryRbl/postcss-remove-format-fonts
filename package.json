@@ -1,19 +1,31 @@
 {
 	"name": "postcss-remove-format-fonts",
-	"version": "1.0.2",
-	"description": "A simple postcss plugin for removing fonts with specific formats.",
-	"license": "MPL-2.0",
 	"type": "module",
+	"version": "1.0.3",
+	"license": "MPL-2.0",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"repository": "github:FurryRbl/postcss-remove-format-fonts",
+	"description": "A simple postcss plugin for removing fonts with specific formats.",
+	"homepage": "https://github.com/FurryRbl/postcss-remove-format-fonts",
+	"bugs": {
+		"email": "SharpIce@SharpIce.top",
+		"url": "https://github.com/FurryRbl/template/postcss-remove-format-fonts"
+	},
+	"author": {
+		"name": "SharpIce",
+		"email": "VupRbl@163.com",
+		"url": "https://SharpIce.top"
+	},
 	"keywords": [
 		"fonts",
 		"plugin",
 		"postcss"
 	],
-	"main": "dist/index.cjs",
-	"module": "dist/index.mjs",
-	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
+			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.cjs"
 		}
@@ -23,38 +35,34 @@
 		"LICENSE",
 		"README.md"
 	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/FurryRbl/postcss-remove-format-fonts.git"
-	},
-	"homepage": "https://github.com/FurryRbl/postcss-remove-format-fonts",
-	"bugs": {
-		"url": "https://github.com/FurryRbl/template/postcss-remove-format-fonts"
-	},
-	"author": {
-		"name": "SharpIce",
-		"email": "VupRbl@163.com",
-		"url": "https://SharpIce.top"
-	},
+	"funding": [
+		{
+			"type": "ko-fi",
+			"url": "https://ko-fi.com/SharpIce"
+		},
+		{
+			"type": "ifdian",
+			"url": "https://ifdian.net/@SharpIce"
+		}
+	],
 	"scripts": {
-		"build": "rollup -c",
 		"clean": "rimraf dist",
 		"lint": "eslint --fix .",
-		"pre": "prettier . --write"
+		"build": "node ./build.js",
+		"test": "node ./test/test.js",
+		"format": "prettier . --write"
 	},
 	"dependencies": {
 		"postcss": "^8.4.40"
 	},
 	"devDependencies": {
-		"@rollup/plugin-commonjs": "^26.0.1",
-		"@rollup/plugin-terser": "^0.4.4",
+		"@swc/core": "^1.7.36",
+		"chalk": "^5.3.0",
 		"eslint": "^9.7.0",
 		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-prettier": "^5.2.1",
+		"ora": "^8.1.0",
 		"prettier": "^3.3.3",
-		"rimraf": "^6.0.1",
-		"rollup": "^4.20.0",
-		"rollup-plugin-dts": "^6.1.1",
-		"typescript": "^5.5.4"
+		"rimraf": "^6.0.1"
 	}
 }

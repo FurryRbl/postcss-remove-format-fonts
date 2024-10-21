@@ -3,3 +3,6 @@
 
 # build
 /dist
+
+# pnpm
+/pnpm-lock.yaml

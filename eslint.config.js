@@ -1,17 +1,20 @@
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
+/** @type {import('eslint').Linter.Config[]} */
 export default [
 	eslintPluginPrettierRecommended,
 	{
 		languageOptions: {
 			parserOptions: {
-				ecmaVersion: 14,
+				ecmaVersion: 'latest',
 				sourceType: 'module',
 			},
 		},
 		rules: {
 			eqeqeq: ['error', 'always'],
 		},
-		ignores: ['node_modules', '/dist'],
+	},
+	{
+		ignores: ['node_modules', 'dist'],
 	},
 ];
