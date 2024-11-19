@@ -11,7 +11,7 @@ import { sync as rimrafSync } from 'rimraf';
 		const source = fs.readFileSync(filePath, 'utf8');
 
 		if (fs.existsSync(outPath)) {
-			rimrafSync.sync(outPath);
+			rimrafSync(outPath);
 		}
 		fs.mkdirSync(outPath);
 
